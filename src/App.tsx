@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Services from "./components/Services";
 
 function App() {
   return (
@@ -7,15 +8,8 @@ function App() {
       <Navbar />
 
       <main>
-        <Hero />
-
-        <section
-          id="services"
-          className="min-h-screen flex items-center justify-center"
-        >
-          <h2 className="text-4xl font-bold">Services</h2>
-        </section>
-
+        <Hero/>
+        <Services/>
         <section
           id="about"
           className="min-h-screen flex items-center justify-center"
