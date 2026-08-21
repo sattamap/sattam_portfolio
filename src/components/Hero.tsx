@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import profileImage from "../assets/sattam_image.png";
 
 const Hero = () => {
@@ -7,39 +8,122 @@ const Hero = () => {
     });
   };
 
+  /* ================= ANIMATION VARIANTS ================= */
+
+  const textVariant = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const nameVariant = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+      filter: "blur(6px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.9,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const imageVariant = {
+    hidden: {
+      opacity: 0,
+      scale: 0.92,
+      y: 30,
+      filter: "blur(6px)",
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 1,
+        ease: "easeOut",
+        delay: 0.5,
+      },
+    },
+  };
+
+  const containerVariant = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
     <section
       id="home"
       className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white flex items-center"
     >
-      <div
+      <motion.div
         className="max-w-7xl mx-auto px-6 py-32 w-full
         flex flex-col-reverse lg:flex-row
         items-center gap-16"
+        variants={containerVariant}
+        initial="hidden"
+        animate="visible"
       >
         {/* ================= LEFT CONTENT ================= */}
 
         <div className="flex-1 text-center lg:text-left">
-          <p className="text-emerald-400 font-semibold text-lg mb-4">
+
+          <motion.p
+            variants={textVariant}
+            className="text-emerald-400 font-semibold text-lg mb-4"
+          >
             Hi, I'm Sattam
-          </p>
+          </motion.p>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <motion.h1
+            variants={textVariant}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+          >
             Your Reliable
-            <span className="block text-emerald-400">
-              Virtual Assistant
-            </span>
-          </h1>
 
-          <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+            <motion.span
+              variants={nameVariant}
+              className="block text-emerald-400"
+            >
+              Virtual Assistant
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            variants={textVariant}
+            className="text-slate-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+          >
             I help businesses and busy professionals stay organized,
             productive, and focused by providing reliable virtual
             assistance and administrative support.
-          </p>
+          </motion.p>
 
           {/* ================= CTA BUTTONS ================= */}
 
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+          <motion.div
+            variants={textVariant}
+            className="flex flex-wrap gap-4 justify-center lg:justify-start"
+          >
             <button
               onClick={() => scrollToSection("#contact")}
               className="rounded-full bg-gradient-to-r from-cyan-400 to-emerald-400
@@ -61,15 +145,18 @@ const Hero = () => {
             >
               View My Services
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* ================= RIGHT IMAGE ================= */}
 
-        <div className="flex-1 flex justify-center relative">
+        <motion.div
+          variants={imageVariant}
+          className="flex-1 flex justify-center relative"
+        >
           <div className="relative w-[300px] h-[300px] md:w-[380px] md:h-[380px]">
 
-            {/* Glow behind image */}
+            {/* Glow */}
             <div
               className="absolute inset-0 rounded-full
               bg-gradient-to-tr from-emerald-400 via-teal-400 to-cyan-500
@@ -82,7 +169,7 @@ const Hero = () => {
               bg-emerald-400 blur-3xl opacity-20"
             />
 
-            {/* Image */}
+            {/* Profile Image */}
             <img
               src={profileImage}
               alt="Sattam Chakma - Virtual Assistant"
@@ -93,8 +180,8 @@ const Hero = () => {
               shadow-2xl"
             />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
