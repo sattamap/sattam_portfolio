@@ -89,7 +89,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white/70 backdrop-blur-lg shadow-md"
-          : "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          : "bg-linear-to-br from-slate-900 via-slate-800 to-slate-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -166,7 +166,7 @@ const Navbar = () => {
 
           <li>
             <button
-              onClick={() => handleScrollTo("#tools")}
+              onClick={() => handleScrollTo("#skills")}
               className={`font-medium transition ${
                 scrolled
                   ? "text-slate-700 hover:text-emerald-600"
@@ -196,7 +196,7 @@ const Navbar = () => {
         <button
           onClick={() => handleScrollTo("#contact")}
           className="hidden lg:inline-flex items-center gap-2 rounded-full
-          bg-gradient-to-r from-cyan-400 to-emerald-400
+          bg-linear-to-r from-cyan-400 to-emerald-400
           px-6 py-2 text-white font-semibold
           transition-all
           hover:scale-105
@@ -269,7 +269,7 @@ const Navbar = () => {
 
               <li>
                 <button
-                  onClick={() => handleScrollTo("#tools")}
+                  onClick={() => handleScrollTo("#skills")}
                   className="block w-full text-left py-2 text-slate-700 hover:text-emerald-600"
                 >
                   Tools
@@ -288,7 +288,7 @@ const Navbar = () => {
               <li className="mt-3">
                 <button
                   onClick={() => handleScrollTo("#contact")}
-                  className="bg-gradient-to-r from-cyan-400 to-emerald-400
+                  className="bg-linear-to-r from-cyan-400 to-emerald-400
                   text-white rounded-md py-2 w-full
                   font-semibold"
                 >
